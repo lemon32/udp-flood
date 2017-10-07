@@ -4,20 +4,28 @@
   "description": "Flood a host with UDP packets in Node.js.",
   "bin": "udp-flood.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "eslint ."
   },
-  "author": "Zachary Iles <zack.iles@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zackiles/udp-flood"
+    "url": "https://github.com/GloriousYellow/udp-flood"
   },
   "bugs": {
-    "url": "https://github.com/zackiles/udp-flood/issues"
+    "url": "https://github.com/GloriousYellow/udp-flood/issues"
   },
   "dependencies": {
     "commander": "^2.9.0",
+    "fancy-log": "^1.3.0",
     "idle-gc": "^1.0.1",
-    "q": "^1.4.1"
+    "q": "^1.4.1",
+    "set-blocking": "^2.0.0"
+  },
+  "devDependencies": {
+    "eslint": "3",
+    "eslint-config-lemon": "^0.0.6",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^5.0.1",
+    "eslint-plugin-react": "^7.0.1"
   }
 }
