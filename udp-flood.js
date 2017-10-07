@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var dgram = require("dgram"),
     Commander  = require('commander'),
     cluster = require('cluster'),
