@@ -11,4 +11,4 @@ The only good-looking udp flood tool
 
 It's simple to use.
 
-    Usage: udp-flood.js -h <ip>
+    Usage: udp-flood --help
