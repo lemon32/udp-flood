@@ -55,7 +55,7 @@ function runWorker() {
 function testSpeed() {
   return new Promise((resolve, reject) => {
     const test = speedTest({
-      maxTime: 2000,
+      maxTime: 5000,
       maxServers: 8,
     })
     test.on('data', resolve)
