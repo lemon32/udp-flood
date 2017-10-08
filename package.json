@@ -1,6 +1,6 @@
 {
   "name": "yellow-udp-flood",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Flood a host with UDP packets in Node.js.",
   "bin": {
     "udp-flood": "udp-flood.js"
