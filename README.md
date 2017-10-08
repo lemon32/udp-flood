@@ -5,7 +5,7 @@ The only good-looking udp flood tool
 
 ## Installation
 
-    $ npm install  -g yellow-udp-flood
+    $ npm install -g yellow-udp-flood
     
 ## How to use
 
