@@ -9,7 +9,8 @@
     "test": "npm run lint",
     "lint": "eslint .",
     "format": "prettier-eslint '{src,test,app}/**/*.{js,ts,css}' --write",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release":
+      "semantic-release pre && npm publish && semantic-release post"
   },
   "main": "src/index.js",
   "license": "MIT",
@@ -52,10 +53,7 @@
   "eslintConfig": {
     "extends": "airbnb",
     "rules": {
-      "semi": [
-        "error",
-        "never"
-      ]
+      "semi": ["error", "never"]
     }
   }
 }
