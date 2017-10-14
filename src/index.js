@@ -11,7 +11,7 @@ module.exports = class Flooder extends events.EventEmitter {
 
   start() {
     function until(fn) {
-      return fn().then(result => {
+      return fn().then((result) => {
         if (result) {
           return result
         }
@@ -20,7 +20,7 @@ module.exports = class Flooder extends events.EventEmitter {
     }
 
     const sendOne = (ip, port) =>
-      new Promise(resolve => {
+      new Promise((resolve) => {
         const msg = Buffer.alloc(50000)
         this.client.send(msg, port, ip, () => resolve(!this.isFlooding))
         this.emit('packet')
