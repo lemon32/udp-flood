@@ -8,8 +8,11 @@ const rp = require('request-promise')
 const dns = require('dns-then')
 const speedTest = require('speedtest-net')
 
-const commander = Commander
-  .option('-h, --host <host>', 'Target to flood (can be hostname or IP address)', String)
+const commander = Commander.option(
+  '-h, --host <host>',
+  'Target to flood (can be hostname or IP address)',
+  String,
+)
   .option('-w, --workers <workers>', 'Number of workers', parseInt)
   .option('-p, --port <port>', 'Port to send packets to', parseInt)
   .parse(process.argv)
@@ -47,9 +50,7 @@ function until(fn) {
 }
 
 function runWorker() {
-  until(
-    () => sendOne(commander.host, port),
-  )
+  until(() => sendOne(commander.host, port))
 }
 
 function testSpeed() {

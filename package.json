@@ -1,20 +1,24 @@
 {
   "name": "yellow-udp-flood",
-  "version": "1.2.1",
+  "version": "0.0.0-development",
   "description": "Flood a host with UDP packets in Node.js.",
   "bin": {
-    "udp-flood": "udp-flood.js"
+    "udp-flood": "src/udp-flood.js"
   },
   "scripts": {
-    "test": "eslint ."
+    "test": "npm run lint",
+    "lint": "eslint .",
+    "format": "prettier-eslint '{src,test,app}/**/*.{js,ts,css}' --write",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
+  "main": "src/index.js",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/GloriousYellow/udp-flood"
+    "url": "https://github.com/Yellowiki/udp-flood"
   },
   "bugs": {
-    "url": "https://github.com/GloriousYellow/udp-flood/issues"
+    "url": "https://github.com/Yellowiki/udp-flood/issues"
   },
   "engines": {
     "node": ">= 8.0.0"
@@ -25,6 +29,7 @@
     "fancy-log": "^1.3.0",
     "idle-gc": "^1.0.1",
     "ora": "^1.3.0",
+    "prettier-eslint-cli": "^4.4.0",
     "q": "^1.4.1",
     "request": "^2.83.0",
     "request-promise": "^4.2.2",
@@ -32,10 +37,25 @@
     "speedtest-net": "^1.3.1"
   },
   "devDependencies": {
-    "eslint": "3",
-    "eslint-config-lemon": "^0.0.6",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^5.0.1",
-    "eslint-plugin-react": "^7.0.1"
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb": "^16.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
+    "semantic-release": "^8.0.3"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "semi": false
+  },
+  "eslintConfig": {
+    "extends": "airbnb",
+    "rules": {
+      "semi": [
+        "error",
+        "never"
+      ]
+    }
   }
 }
