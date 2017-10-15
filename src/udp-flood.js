@@ -36,12 +36,19 @@ client.bind(port)
 function sendOne(ip, fport) {
   return new Promise((resolve, reject) => {
     const msg = Buffer.alloc(1024)
-    client.send(msg, 0, msg.length, fport, ip, err => (err ? reject(err) : resolve(false)))
+    client.send(
+      msg,
+      0,
+      msg.length,
+      fport,
+      ip,
+      err => (err ? reject(err) : resolve(false)),
+    )
   })
 }
 
 function until(fn) {
-  return fn().then((result) => {
+  return fn().then(result => {
     if (result) {
       return result
     }
@@ -78,10 +85,6 @@ async function main() {
     const theirIsp = await rp(`https://ipinfo.io/${ip}/org`)
 
     spinner.info(`Route: ${myIsp.trim()} ➔ ${theirIsp.trim()}`)
-    spinner.start('Testing bandwidth')
-
-    const speed = await testSpeed()
-    spinner.info(`Bandwidth: ${speed.speeds.upload} Mbps (tested via ${speed.server.host})`)
     spinner.start('Starting workers')
 
     for (let i = 0; i < workers; i += 1) {
