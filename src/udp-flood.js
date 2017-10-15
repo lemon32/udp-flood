@@ -36,19 +36,12 @@ client.bind(port)
 function sendOne(ip, fport) {
   return new Promise((resolve, reject) => {
     const msg = Buffer.alloc(1024)
-    client.send(
-      msg,
-      0,
-      msg.length,
-      fport,
-      ip,
-      err => (err ? reject(err) : resolve(false)),
-    )
+    client.send(msg, 0, msg.length, fport, ip, err => (err ? reject(err) : resolve(false)))
   })
 }
 
 function until(fn) {
-  return fn().then(result => {
+  return fn().then((result) => {
     if (result) {
       return result
     }
