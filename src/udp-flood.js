@@ -36,12 +36,19 @@ client.bind(port)
 function sendOne(ip, fport) {
   return new Promise((resolve, reject) => {
     const msg = Buffer.alloc(1024)
-    client.send(msg, 0, msg.length, fport, ip, err => (err ? reject(err) : resolve(false)))
+    client.send(
+      msg,
+      0,
+      msg.length,
+      fport,
+      ip,
+      err => (err ? reject(err) : resolve(false)),
+    )
   })
 }
 
 function until(fn) {
-  return fn().then((result) => {
+  return fn().then(result => {
     if (result) {
       return result
     }
@@ -51,17 +58,6 @@ function until(fn) {
 
 function runWorker() {
   until(() => sendOne(commander.host, port))
-}
-
-function testSpeed() {
-  return new Promise((resolve, reject) => {
-    const test = speedTest({
-      maxTime: 5000,
-      maxServers: 8,
-    })
-    test.on('data', resolve)
-    test.on('error', reject)
-  })
 }
 
 async function main() {
