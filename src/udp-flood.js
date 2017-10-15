@@ -6,7 +6,6 @@ const cluster = require('cluster')
 const os = require('os')
 const rp = require('request-promise')
 const dns = require('dns-then')
-const speedTest = require('speedtest-net')
 
 const commander = Commander.option(
   '-h, --host <host>',
@@ -48,7 +47,7 @@ function sendOne(ip, fport) {
 }
 
 function until(fn) {
-  return fn().then(result => {
+  return fn().then((result) => {
     if (result) {
       return result
     }
