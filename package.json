@@ -43,7 +43,7 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.4.0",
-    "semantic-release": "^8.0.3"
+    "semantic-release": "^11.0.2"
   },
   "prettier": {
     "singleQuote": true,
